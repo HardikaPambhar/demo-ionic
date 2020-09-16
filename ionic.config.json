@@ -1,7 +1,8 @@
 {
   "name": "my-ionic-app",
-  "type": "custom",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "custom",
+  "id": "b6a30fe9"
 }
