@@ -1,0 +1,7 @@
+{
+  "name": "my-ionic-app",
+  "type": "custom",
+  "integrations": {
+    "cordova": {}
+  }
+}

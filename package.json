@@ -1,0 +1,22 @@
+{
+  "name": "my-ionic-app",
+  "version": "1.0.0",
+  "description": "My Ionic app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HardikaPambhar/demo-ionic.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Hardika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HardikaPambhar/demo-ionic/issues"
+  },
+  "homepage": "https://github.com/HardikaPambhar/demo-ionic#readme"
+}
