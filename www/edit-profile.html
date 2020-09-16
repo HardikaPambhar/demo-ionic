@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Arrvi Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+  <link rel="stylesheet" href="css/owl.transitions.css">
+  <link rel="stylesheet" href="css/fakeLoader.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.png">
+</head>
+
+<body>
+  <div id="PutDefaultCss"> </div>
+  <!-- navbar top -->
+  <div class="navbar-top">
+    <div class="site-brand"><a href="index.html">
+        <div id="DivSocjoiLogo"><img src="img/logo.png"  height="40"></div>
+      </a></div>
+    <div class="side-nav-panel-right">
+      
+      <a href="#" data-activates="slide-out-right" class="side-nav-right"><i class="fa fa-bars"></i></a></div>
+  </div>
+  <!-- end navbar top -->
+
+  <!-- side nav right-->
+  <div class="side-nav-panel-right">
+    <ul id="slide-out-right" class="side-nav side-nav-panel collapsible SocjoiMenu">
+    </ul>
+  </div>
+  <!-- end side nav right-->
+
+  <!-- about us -->
+
+
+
+  <div class="col-md-12" style="padding-top:80px;">
+    <h2 class="word-rotator-title text-center mb-lg"><strong>Edit Profile</strong></h2>
+    <br>
+    <form id="profileForm">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="First Name" name="first_name" id="first_name" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Last Name" name="last_name" id="last_name" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Middle Name" name="middle_name" id="middle_name" />
+      </div>
+
+      <div class="form-group">
+        <label>
+          <input class="with-gap" name="gender" type="radio" value="Male" checked />
+          <span>Male</span>
+        </label>
+        &nbsp;&nbsp;
+        <label>
+          <input class="with-gap" name="gender" type="radio" value="Female" />
+          <span>Female</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Address" name="address1" id="address1" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Address" name="address2" id="address2" />
+      </div>
+      <div class="form-group ">
+        <select class=" form-control" name="country_id" id="country_id" onchange="country_state();">
+          <option value="0"> Select Country</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <select class=" form-control" name="state_id" id="state_id" onchange="state_city();">
+          <option value="0"> Select State</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="City" name="city" id="city" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="zip" name="zip" id="zip" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Email Address" name="email" id="email" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Phone" name="cell_phone" id="cell_phone" />
+      </div>
+      <div class="form-group">
+        <button type="submit" style="margin:0px;" class="btn button-default">Save</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <!-- loader -->
+  <div id="fakeLoader"></div>
+  <!-- end loader -->
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" style="padding-right:0;">
+          <div class="social-media" id="FooterSocialMedia"> </div>
+          <p class="text-center" style="color:#fff !important;">Powered By <a href="http://www.aarvitechnology.com/"
+              style="color:#fff !important;" target="_blank">Aarvi Technology</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end footer -->
+  <div class="dmtop">Scroll to Top</div>
+
+  <!-- scripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/fakeLoader.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#fakeLoader').show();
+      $("#includedContent").load("login-modals.html");
+      FunGetDefaultCss();
+      FunSocjoiMenu();
+      FunAboutUs();
+      FunFooterSocialMedia();
+      if (window.localStorage["Socjoi_LOGO"] == '') {
+        $('#DivSocjoiLogo').html('<img src="img/logo.png"  height="40">');
+      }
+      else {
+        $('#DivSocjoiLogo').html('<img src="' + window.localStorage["Socjoi_LOGO"] + '" height="40">');
+      }
+      FunGetProfile();
+    });
+
+    $('#profileForm').on('submit', function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: window.localStorage["SOCJOi_AccountLink"]+'member-profile-api.php?mode=SaveForm&account_id=' + localStorage.Socjoi_AccountId + '&account_code=' + localStorage.Socjoi_AccountCode + '&member_id=' + localStorage.SOCJOI_LOGIN_ID,
+        crossDomain: true,
+        data: $(this).serializeArray(),
+        success: function (response) {
+          if (response == 'success') {
+            $('#MaterialDetail').html("Profile Updated Successfully");
+            $('#MaterialDetailBox').modal({ show: true });
+
+          }else if (response == 'mobile') {
+            $('#MaterialDetail').html("Mobile Already Exists");
+            $('#MaterialDetailBox').modal({ show: true });
+
+          }else if (response == 'email') {
+            $('#MaterialDetail').html("Email Already Exists");
+            $('#MaterialDetailBox').modal({ show: true });
+
+          }else {
+            $('#MaterialDetail').html("Something went wrong");
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+        }
+      })
+    });
+    function FunGetProfile() {
+      var mode = 'GetDashboard';
+      var member_id = localStorage.Socjoi_Family_Mem_ID;
+      if (localStorage.SOCJOI_INDIVIDUAL == 'no') {
+        mode = 'GetDashboardMaster';
+        member_id = localStorage.SOCJOI_LOGIN_ID;
+      }
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'member-profile-api.php',
+        crossDomain: true,
+        data: { mode: mode, account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], member_id: member_id },
+        dataType: 'json',
+        async: false,
+        success: function (response) {
+
+          console.log(response);
+          $('#first_name').val(response.first_name);
+          $('#last_name').val(response.last_name);
+          $('#middle_name').val(response.middle_name);
+          if (response.gender == 'Male') {
+            $("input[name=gender][value='Male']").prop("checked", true);
+          } else {
+            $("input[name=gender][value='Female']").prop("checked", true);
+          }
+          $('#address1').val(response.address1);
+          $('#address2').val(response.address2);
+          $('#city').val(response.city);
+          FunGetCountry();
+          document.getElementById('country_id').value = response.country_id ? response.country_id : 0;
+          if (response.country_id) {
+            country_state();
+          }
+          document.getElementById('state_id').value = response.state_id ? response.state_id : 0;
+          $('#zip').val(response.zip);
+          // $('#state').val();
+          $('#email').val(response.email);
+          $('#cell_phone').val(response.cell_phone);
+
+          // if (response['code'] == '0') {
+          //   $('#MaterialDetail').html(response['message']);
+          //   $('#MaterialDetailBox').modal({ show: true });
+          // }
+          // if (response['code'] == '1') {
+          //   $('.SocjoiMenu').html(response['detail']);
+          // }
+          $('#fakeLoader').hide();
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+
+    function FunGetCountry() {
+      var country_id = document.getElementById("country_id");
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'member-profile-api.php',
+        crossDomain: true,
+        data: { mode: 'GetAllCountry', account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        async: false,
+        success: function (response) {
+          // console.log(response);
+          var opts = country_id.options;
+          $.each(response, function (k, v) {
+            // console.log(k, v);
+            opts[opts.length] = new Option(v.countries_name, v.countries_id);
+          });
+
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function country_state() {
+      var country_id = document.getElementById("country_id").value;
+      var state = document.getElementById("state_id");
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'member-profile-api.php',
+        crossDomain: true,
+        data: { mode: 'GetState', country_id: country_id, account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        async: false,
+        success: function (response) {
+
+          // console.log(response);
+          var opts = state.options;
+          $.each(response, function (k, v) {
+            // console.log(k, v);
+            opts[opts.length] = new Option(v.zone_name, v.zone_id);
+          });
+
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunSocjoiMenu(){
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'menu-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] ,isLogged:window.localStorage["SOCJOI_LOGIN_ID"],member_id:localStorage.Socjoi_Family_Mem_ID },
+        dataType: 'json',
+        success: function (response) {
+
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('.SocjoiMenu').html(response['detail']);
+			if(response['is_logout']=="Logout")
+						{
+							localStorage.removeItem('SOCJOI_LOGIN_ID');
+							localStorage.removeItem('SOCJOI_LOGIN_NAME');
+							localStorage.removeItem('SOCJOI_MEMBERSHIP_ID');
+							localStorage.removeItem('Socjoi_Relation_ID');
+							localStorage.removeItem('Socjoi_Family_Mem_ID');
+							
+						}
+          }
+		  
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunGetDefaultCss() {
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'default-css-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#PutDefaultCss').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunAboutUs() {
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'aboutus-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#AboutUs').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunFooterSocialMedia() {
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'social-media-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#FooterSocialMedia').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#fakeLoader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    (function ($) {
+      "use strict";
+      jQuery(window).scroll(function () {
+        if (jQuery(this).scrollTop() > 1) {
+          jQuery('.dmtop').css({ bottom: "25px" });
+        } else {
+          jQuery('.dmtop').css({ bottom: "-100px" });
+        }
+      });
+      jQuery('.dmtop').click(function () {
+        jQuery('html, body').animate({ scrollTop: '0px' }, 800);
+        return false;
+      });
+
+    })(jQuery);
+  </script>
+  <div class="modal fade bs-example-modal-lg" style="z-index:1111;" id="MaterialDetailBox" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg alert-modal">
+      <div class="modal-content" style="background-color: #df4a38; padding: 0px;">
+        <div class="modal-icon"><i class="fa fa-info-circle"></i></div>
+        <div class="modal-body">
+          <div class="input-block">
+            <div class="row" style="margin:0px;">
+              <div class="">
+                <span id="MaterialDetail"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-btn"><a style="font-size: 20px; color: #fff;" type="" class="" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div id="loader" class="grayBox" style="display:none; position:fixed; vertical-align:middle; z-index:1050;"
+    align="center"><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="img/loader-img.gif"> </div>
+</body>
+
+</html>

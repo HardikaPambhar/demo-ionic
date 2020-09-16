@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>106813827516-d6ebi83l0fsj7508293ve0dof73ch6jm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.106813827516-d6ebi83l0fsj7508293ve0dof73ch6jm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC4yTjUOn84FOpvT-yk9X-zrPL5JSqKGpk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>106813827516</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.socjoi.aarvitech</string>
+	<key>PROJECT_ID</key>
+	<string>socjoi</string>
+	<key>STORAGE_BUCKET</key>
+	<string>socjoi.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:106813827516:ios:1eef65eab9527ad4</string>
+	<key>DATABASE_URL</key>
+	<string>https://socjoi.firebaseio.com</string>
+</dict>
+</plist>

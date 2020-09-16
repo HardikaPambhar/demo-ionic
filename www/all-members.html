@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Arrvi Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+  <link rel="stylesheet" href="css/owl.transitions.css">
+  <link rel="stylesheet" href="css/fakeLoader.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.png">
+</head>
+
+<body>
+  <div id="PutDefaultCss"> </div>
+  <!-- navbar top -->
+  <div class="navbar-top">
+    <div class="site-brand"><a href="index.html">
+        <div id="DivSocjoiLogo"><img src="img/logo.png"  height="40"></div>
+      </a></div>
+    <div class="side-nav-panel-right">
+      <a href="#" data-activates="slide-out-right" style="float:right;" class="side-nav-right"><i class="fa fa-bars"></i></a>
+      <div class="login-btn" style="display: block;float: right;margin-right: 14px;">
+          <a href="javascript:;" id="login-btn" class="side-nav-login" data-toggle="modal" data-target="#Login"><i
+            class="fa fa-user"></i></a>
+        <a href="logout-member.html" id="logout-btn" class="side-nav-login" style="display:none;"><i
+            class="fa fa-sign-out"></i></a>
+      </div>
+      
+      
+      </div>
+  </div>
+  <!-- end navbar top -->
+
+  <!-- side nav right-->
+  <div class="side-nav-panel-right">
+    <ul id="slide-out-right" class="side-nav side-nav-panel collapsible SocjoiMenu">
+    </ul>
+  </div>
+  <!-- end side nav right-->
+
+  <!-- about us -->
+  <div class="col-md-12" style="padding-top:65px; min-height:500px;" id="section">
+    <div class="clearfix" style="margin-top:10px;"></div>
+    <h4></h4>
+    <div class="row" id="list">
+
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <!-- loader -->
+  <div id="fakeLoader"></div>
+  <!-- end loader -->
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" style="padding-right:0;">
+          <div class="social-media" id="FooterSocialMedia"> </div>
+          <p class="text-center" style="color:#fff !important;">Powered By <a href="http://www.aarvitechnology.com/"
+              style="color:#fff !important;" target="_blank">Aarvi Technology</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end footer -->
+  <div class="dmtop">Scroll to Top</div>
+
+  <!-- scripts -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/fakeLoader.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      if (localStorage.Socjoi_Allow_Login == 'yes') {
+        $('.login-btn').show();
+      }
+      FunGetDefaultCss();
+      FunSocjoiMenu();
+      FunAboutUs();
+      FunSocjoiLoginModal();
+      FunFooterSocialMedia();
+      if (window.localStorage["Socjoi_LOGO"] == '') {
+        $('#DivSocjoiLogo').html('<img src="img/logo.png"  height="40">');
+      }
+      else {
+        $('#DivSocjoiLogo').html('<img src="' + window.localStorage["Socjoi_LOGO"] + '" height="40">');
+      }
+      FunGetDownloads()
+    });
+
+    function Content(v) {
+      return '<div class="col-md-12" style="padding: 10px;border-top: 1px solid #ccc;"><span style="float:right;">' + v.cell_phone + '</span><strong>' + v.name + '</strong><br><span style="font-size: 12px;">' + v.email + '</span><br><span style="font-size: 12px;">' + v.address1 + '</span>, <span style="font-size: 12px;">' + v.city + '</span>, <span style="font-size: 12px;">' + v.state + '</span></div>';
+    }
+
+    function FunGetDownloads() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'all-members-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          console.log(response);
+          if (response.code == 0) {
+            $('#section > h4').html(response.message);
+          } else {
+            $.each(response.data, function (k, v) {
+              $('#list').append(Content(v));
+            });
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunSocjoiMenu() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'menu-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], isLogged: window.localStorage["SOCJOI_LOGIN_ID"],member_id:localStorage.Socjoi_Family_Mem_ID  },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('.SocjoiMenu').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunSocjoiLoginModal() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'login-modal-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], isLogged: window.localStorage["SOCJOI_LOGIN_ID"] },
+        dataType: 'json',
+        cache: false,
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $("#includedContent").html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunGetDefaultCss() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'default-css-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#PutDefaultCss').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunAboutUs() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'aboutus-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#AboutUs').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunFooterSocialMedia() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'social-media-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#FooterSocialMedia').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    (function ($) {
+      "use strict";
+      jQuery(window).scroll(function () {
+        if (jQuery(this).scrollTop() > 1) {
+          jQuery('.dmtop').css({ bottom: "25px" });
+        } else {
+          jQuery('.dmtop').css({ bottom: "-100px" });
+        }
+      });
+      jQuery('.dmtop').click(function () {
+        jQuery('html, body').animate({ scrollTop: '0px' }, 800);
+        return false;
+      });
+
+    })(jQuery);
+  </script>
+  <div class="modal fade bs-example-modal-lg" style="z-index:1111;" id="MaterialDetailBox" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg alert-modal">
+      <div class="modal-content" style="background-color: #df4a38; padding: 0px;">
+        <div class="modal-icon"><i class="fa fa-info-circle"></i></div>
+        <div class="modal-body">
+          <div class="input-block">
+            <div class="row" style="margin:0px;">
+              <div class="">
+                <span id="MaterialDetail"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-btn"><a style="font-size: 20px; color: #fff;" type="" class="" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></a></div>
+      </div>
+    </div>
+  </div>
+  <div id="loader" class="grayBox" style="display:none; position:fixed; vertical-align:middle; z-index:1050;"
+    align="center"><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="img/loader-img.gif"> </div>
+</body>
+
+</html>

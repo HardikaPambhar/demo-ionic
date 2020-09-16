@@ -1,0 +1,308 @@
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width:400px;">
+    <div class="modal-content featured-box featured-box-primary align-left mt-xlg">
+      <div class="box-content panel-body">
+        <form id="LoginForm" class="form-horizontal mb-lg">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            style="position: relative;top: -20px;right: -16px"><i class="fa fa-times"></i></button>
+          <h2 class="heading-primary text-center text-uppercase mb-md"><strong>Login</strong></h2>
+          <div class="alert alert-danger fade in CommonErroLoginMsg" style="display:none; margin-bottom:5px;"
+            align="left"></div>
+          <div class="alert alert-success fade in CommonSuccessLoginMsg" style="display:none; margin-bottom:5px;"
+            align="left"></div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-12">
+                <label>Mobile Number</label>
+                <input value="" class="form-control input-lg" type="text" name="LoginUserID" id="LoginUserID" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-md-12">
+                <label>Password</label>
+                <input value="" class="form-control input-lg" type="password" name="LoginPassword" id="LoginPassword" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row">
+              <div class="col-md-12">
+                <input value="Login" class="btn button-default btn-block" style="margin:0px;"
+                  data-loading-text="Loading..." type="submit">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center mt-md"> <a href="javascript:;"
+                onclick=" $('.LoginSendOTPClass').show(); $('.LoginVerifuOTPClass').hide(); $('#Login').modal('hide'); $('#LoginOTPPopupID').modal({ show: true}); ">Login
+                via mobile OTP?</a>
+
+              <!-- <a href="javascript:;" data-toggle="modal" data-target="#Forgot-Pass">Forgot Password?</a> -->
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center mt-md"> New Member? <a href="register.html">Click Here for
+                Registration</a> </div>
+          </div>
+          <div class="row"> </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="LoginOTPPopupID" tabindex="-1" role="dialog" aria-labelledby="formModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" style="max-width:400px;">
+    <div class="modal-content featured-box featured-box-primary align-left mt-xlg">
+      <div class="box-content panel-body">
+        <form id="LoginOtpForm" onsubmit="return LoginOTPFun();" class="form-horizontal mb-lg">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            style="position: relative;top: -20px;right: -16px"><i class="fa fa-times"></i></button>
+          <h2 class="heading-primary text-center text-uppercase mb-md"><strong>Login</strong></h2>
+          <div class="alert alert-danger fade in CommonErroLoginOTPMsg" style="display:none; margin-bottom:5px;"
+            align="left"></div>
+          <div class="alert alert-success fade in CommonSuccessLoginOTPMsg" style="display:none; margin-bottom:5px;"
+            align="left"></div>
+          <div class="LoginSendOTPClass">
+            <div class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Mobile Number</label>
+                  <input value="" class="form-control input-lg" type="text" name="LoginOTPUserID" id="LoginOTPUserID" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <input value="Send OTP" class="btn button-default btn-block" data-loading-text="Loading..."
+                    type="button" onClick="SendLoginOtp();">
+                </div>
+              </div>
+              <div class="col-md-12 text-center mt-md"><a href="javascript:;"
+                  onclick="$('.LoginSendOTPClass').hide(); $('.LoginVerifuOTPClass').hide();$('#LoginOTPPopupID').modal('hide');$('#Login').modal({show:true}); ">Login
+                  via Username and Password?</a></div>
+            </div>
+          </div>
+          <div class="LoginVerifuOTPClass" style="display:none;">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-12" id='LoginOTPMessagebox'> OPT is send to your mobile number. </div>
+                <div class="col-md-12"> <a href="javascript:;" onclick="changeMobileNumber();">Change Mobile
+                    Number</a> </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <input value="" class="form-control input-lg" placeholder="Enter OTP Code" type="text"
+                    name="LoginOTPCode" id="LoginOTPCode" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <input value="Login" class="btn button-default btn-block " data-loading-text="Loading..."
+                    type="submit">
+                </div>
+              </div>
+              <div class="row mt-md">
+                <div class="col-md-12">Not Received OTP? <a href="javascript:;" onclick="resendOtp();">RESEND
+                    OTP</a>
+                </div>
+              </div>
+              <div class="col-md-12 text-center mt-md"><a href="javascript:;"
+                  onclick="$('.LoginSendOTPClass').hide(); $('.LoginVerifuOTPClass').hide();$('#LoginOTPPopupID').modal('hide');$('#Login').modal({show:true}); ">Login
+                  via Username and Password?</a></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center mt-md"> New Member? <a href="register.html">Click Here</a> for
+              Registration
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="Forgot-Pass" tabindex="-1" role="dialog" aria-labelledby="formModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" style="max-width:400px;">
+    <div class="modal-content featured-box featured-box-primary align-left mt-xlg">
+      <div class="box-content panel-body">
+        <form class="form-horizontal mb-lg">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            style="position: relative;top: -20px;right: -16px"><i class="fa fa-times"></i></button>
+          <h2 class="heading-primary text-center text-uppercase mb-md"><strong>Forgot Password?</strong></h2>
+          <form action="#" id="frmSignIn" method="post">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-12">
+                  <label>E-mail Address</label>
+                  <input value="" class="form-control input-lg" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <input value="Submit" class="btn button-default btn-block" data-loading-text="Loading..."
+                    type="submit">
+                </div>
+              </div>
+            </div>
+            <div class="row"> </div>
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  if (localStorage.SOCJOI_LOGIN_ID && localStorage.SOCJOI_LOGIN_ID != '' && localStorage.SOCJOI_LOGIN_ID != '0') {
+    $('#login-btn').hide();
+    $('#logout-btn').show();
+  } else {
+    $('#login-btn').show();
+    $('#logout-btn').hide();
+  }
+  $('#LoginForm').on('submit', function (e) {
+    e.preventDefault();
+    $.post(window.localStorage["SOCJOi_AccountLink"]+'login-member-api.php?mode=LoginMode&account_id=' + localStorage.Socjoi_AccountId + '&account_code=' + localStorage.Socjoi_AccountCode,
+      $(this).serializeArray(), function (data) {
+        data = JSON.parse(data);
+        if (data.code == '1') {
+          window.localStorage['SOCJOI_INDIVIDUAL'] = data['ALLOW_INDIVIDUAL'];
+          if (window.localStorage['SOCJOI_INDIVIDUAL'] == 'no' || data['MEMBERSHIP_ID'] == 0) {
+            window.localStorage['SOCJOI_LOGIN_ID'] = data['LOGIN_ID'];
+            window.localStorage['SOCJOI_LOGIN_NAME'] = data['LOGIN_NAME'];
+            window.localStorage['SOCJOI_MEMBERSHIP_ID'] = data['MEMBERSHIP_ID'];
+            // location.href = 'dashboard.html';
+          } else {
+            window.localStorage['TMP_LOGIN_ID'] = data['LOGIN_ID'];
+            window.localStorage['TMP_LOGIN_NAME'] = data['LOGIN_NAME'];
+            window.localStorage['TMP_MEMBERSHIP_ID'] = data['MEMBERSHIP_ID'];
+            // location.href = 'user-select.html';
+          }
+
+        }
+        else if (data.msg == 'invalid_login_details') {
+          $('#MaterialDetail').html("Invalid Login Details.");
+        }
+        else if (data.msg == 'deactive') {
+          $('#MaterialDetail').html("Sorry! You account is not active. Please contact to administrator.");
+        }
+        else if (data.msg == 'disapprove') {
+          $('#MaterialDetail').html("Your account is still not approved please allow admin to take 24 hours to verify it and if it is more than 24 hours then contact to admin.");
+        }
+        else {
+          alert("<?=LBL_PLEASE_TRY_ENTER?>");
+        }
+        $('#MaterialDetailBox').modal({ show: true });
+      });
+  });
+  function changeMobileNumber() {
+    $('.LoginSendOTPClass').show();
+    $('.LoginVerifuOTPClass').hide();
+  }
+  function resendOtp() {
+    $('.CommonErroLoginOTPMsg').hide();
+    $('.CommonSuccessLoginOTPMsg').hide();
+    var LoginOTPUserID = $('#LoginOTPUserID').val();
+    if (LoginOTPUserID == '') {
+      $('.CommonErroLoginOTPMsg').show().html("Please Enter Mobile Number");
+      document.getElementById('LoginOTPUserID').focus();
+      return false;
+    }
+    $.post(window.localStorage["SOCJOi_AccountLink"]+'login-member-api.php?mode=SendLoginOtpMode&account_id=' + localStorage.Socjoi_AccountId + '&account_code=' + localStorage.Socjoi_AccountCode,
+      { LoginOTPUserID: LoginOTPUserID },
+      function (data) {
+        data = JSON.parse(data);
+        window.localStorage['OTP'] = data.otp;
+      });
+    return false;
+  }
+  function SendLoginOtp() {
+    $('.CommonErroLoginOTPMsg').hide();
+    $('.CommonSuccessLoginOTPMsg').hide();
+
+    var LoginOTPUserID = $('#LoginOTPUserID').val();
+    if (LoginOTPUserID == '') {
+      $('.CommonErroLoginOTPMsg').show().html("Please Enter Mobile Number");
+      document.getElementById('LoginOTPUserID').focus();
+      return false;
+    }
+    $.post(window.localStorage["SOCJOi_AccountLink"]+'login-member-api.php?mode=SendLoginOtpMode&account_id=' + localStorage.Socjoi_AccountId + '&account_code=' + localStorage.Socjoi_AccountCode,
+      { LoginOTPUserID: LoginOTPUserID },
+      function (data) {
+        //alert(data);
+        data = JSON.parse(data);
+        if (data.code == '1') {
+          $('.LoginSendOTPClass').hide();
+          window.localStorage['OTP'] = data.otp;
+          $('#LoginOTPMessagebox').html("OTP is sent to your mobile number " + LoginOTPUserID + ". Please verify it.");
+          $('.LoginVerifuOTPClass').show();
+        }
+        else if (data == 'invalid_login_details') {
+          $('.CommonErroLoginOTPMsg').show().html("This Mobile Number is not available in our system.");
+        }
+        else if (data == 'deactive') {
+          $('.CommonErroLoginOTPMsg').show().html("Sorry! You account is not active. Please contact to administrator.");
+        }
+        else if (data == 'disapprove') {
+          $('.CommonErroLoginOTPMsg').show().html("Your account is still not approved please allow admin to take 24 hours to verify it and if it is more than 24 hours then contact to admin.");
+        }
+        else {
+          alert("Please Try Later");
+        }
+      });
+    return false;
+  }
+
+  function LoginOTPFun() {
+    $('.CommonErroLoginOTPMsg').hide();
+    $('.CommonSuccessLoginOTPMsg').hide();
+
+    var LoginOTPUserID = $('#LoginOTPUserID').val();
+    var LoginOTPCode = $('#LoginOTPCode').val();
+    if (LoginOTPCode == '') {
+      $('.CommonErroLoginOTPMsg').show().html("Please Enter OTP Code");
+      document.getElementById('LoginOTPCode').focus();
+      return false;
+    }
+
+    $.post(window.localStorage["SOCJOi_AccountLink"]+'login-member-api.php?mode=VerifySendLoginOtpMode&account_id=' + localStorage.Socjoi_AccountId + '&account_code=' + localStorage.Socjoi_AccountCode,
+      { LoginOTPCode: LoginOTPCode, LoginOTPUserID: LoginOTPUserID },
+      function (data) {
+        //alert(data);
+        data = JSON.parse(data);
+        console.log(data)
+        if (data.code == '1') {
+          window.localStorage['TMP_LOGIN_ID'] = data['LOGIN_ID'];
+          window.localStorage['TMP_LOGIN_NAME'] = data['LOGIN_NAME'];
+          window.localStorage['TMP_MEMBERSHIP_ID'] = data['MEMBERSHIP_ID'];
+          window.localStorage['SOCJOI_INDIVIDUAL'] = data['ALLOW_INDIVIDUAL'];
+          if (window.localStorage['SOCJOI_INDIVIDUAL'] == 'no') {
+            location.reload();
+          } else {
+            location.href = 'user-select.html';
+          }
+        }
+        else if (data == 'invalid') {
+          $('.CommonErroLoginOTPMsg').show().html("Please enter Valid OTP Code.");
+        }
+        else {
+          alert("Please Try Later");
+        }
+      });
+    return false;
+  }
+</script>

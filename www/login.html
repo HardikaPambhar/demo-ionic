@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<title>Arrvi Technology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="HandheldFriendly" content="True">
+<link rel="stylesheet" href="css/materialize.css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.transitions.css">
+<link rel="stylesheet" href="css/fakeLoader.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="img/favicon.png">
+</head>
+<body>
+<br>
+
+<br>
+<br>
+<div class="section">
+  <div class="container">
+    <div class="section-head">
+
+
+     <div class="row text-center">
+    <a href="index.html"> <img src="img/logo.png" width="250"> </a>
+    </div>
+    <br>
+
+      <h4 id="hp_contactus_success">Login</h4><br>
+      Enter Society Name and Society Code below, if you don't have this detail then ask to your society manager.
+      </div>
+    <div class="contact-us contact-home">
+     
+    
+      <div class="row">
+        <form onsubmit="return false;">
+          <div class="col s12"> <span style="clear:both; font-size:18px; color:#0089E1; font-weight:bold;" id="contactus_success"> </span>
+            <div class="form-group" id="name-field">
+              <input type="text" class="validate" id="account_name" name="account_name" placeholder="Society Name">
+            </div>
+            <div class="form-group" id="email-field">
+              <input type="text" class="validate" id="account_code" name="account_code" placeholder="Society Code">
+            </div>
+            <div class="form-group">
+              <button class="btn button-default pull-right" style="width:100%; height:50px; color:#fff;" type="submit" onclick="FunMake();" >Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade bs-example-modal-lg" style="z-index:1111;" id="MaterialDetailBox" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg alert-modal">
+      <div class="modal-content" style="background-color: #df4a38; padding: 0px;">
+        <div class="modal-icon"><i class="fa fa-info-circle"></i></div>
+        <div class="modal-body">
+          <div class="input-block">
+            <div class="row" style="margin:0px;">
+              <div class="">
+                <span id="MaterialDetail"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-btn"><a style="font-size: 20px; color: #fff;" type="" class="" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></a></div>
+      </div>
+    </div>
+  </div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="cordova.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript">
+    app.initialize();
+  </script>
+<script>
+function specificPageFunction() {
+		window.FirebasePlugin.grantPermission(); 
+    }
+function FunMake()
+{	
+	var account_name = document.getElementById('account_name');
+	if($('#account_name').val()=='')
+	{		
+		$('#MaterialDetail').html("Society name should not be empty");
+		$('#MaterialDetailBox').modal({ show: true});
+		$('#accountname').focus();
+		return false;
+	}	
+	if($('#account_code').val()=='')
+	{
+		$('#MaterialDetail').html("Society Code should not be empty");
+		$('#MaterialDetailBox').modal({ show: true});
+		$('#account_code').focus();
+		return false;
+	}	
+	
+	$('#loader').show();
+	 $.ajax({
+        type       : "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'login-api.php',
+        crossDomain: true,       
+        data       : {account_name : $('#account_name').val(),account_code : $('#account_code').val()},
+        dataType   : 'json',
+        success    : function(response) 
+		{
+			 $('#loader').hide();
+			 if(response['code']=='0')
+			 {
+				 $('#MaterialDetail').html(response['message']);
+				 $('#MaterialDetailBox').modal({ show: true});	
+			 }			
+			 if(response['code']=='1')
+			 {
+				window.localStorage["Socjoi_AccountId"] = response['details']['AccountId'];
+				window.localStorage["Socjoi_ImagePath"] = response['details']['Socjoi_IMAGE_PATH'];
+				window.localStorage["Socjoi_AccountCode"] = $('#account_name').val();
+				window.localStorage["Socjoi_AccountName"] = response['details']['AccountName'];
+				window.localStorage["Socjoi_LOGO"] = response['details']['Socjoi_LOGO'];
+				window.localStorage['Socjoi_Allow_Login'] = response['details']['Allow_Login'];
+				document.location='index.html';			
+				
+			 }
+			 $('#account_name').val('');
+			 $('#account_code').val('');
+        },       
+        error      : function() {
+			$('#loader').hide();
+			$('#MaterialDetail').html("You are not connected to internet. Please try again.");
+			$('#MaterialDetailBox').modal({ show: true});
+        }
+    });  	
+}
+</script>
+
+<div id="loader" class="grayBox" style="display:none; position:fixed; vertical-align:middle; z-index:1050;" align="center"><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <img src="img/loader-img.gif">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Arrvi Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <link rel="stylesheet" href="css/materialize.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+  <link rel="stylesheet" href="css/owl.transitions.css">
+  <link rel="stylesheet" href="css/fakeLoader.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="img/favicon.png">
+</head>
+
+<body onload="CheckLogin();">
+  <div id="PutDefaultCss">
+  </div>
+  <div class="navbar-top">
+    <div class="site-brand"><a href="index.html">
+        <div id="DivSocjoiLogo"><img src="img/logo.png" width="40"></div>
+      </a></div>
+    <div class="side-nav-panel-right">
+      <a href="#" data-activates="slide-out-right" style="float:right;" class="side-nav-right"><i class="fa fa-bars"></i></a>
+      <div class="login-btn" style="display: block;float: right;margin-right: 14px;">
+          <a href="javascript:;" id="login-btn" class="side-nav-login" data-toggle="modal" data-target="#Login"><i
+            class="fa fa-user"></i></a>
+        <a href="logout-member.html" id="logout-btn" class="side-nav-login" style="display:none;"><i
+            class="fa fa-sign-out"></i></a>
+      </div>
+      
+      
+      </div>
+  </div>
+  <div class="side-nav-panel-right">
+    <ul id="slide-out-right" class="side-nav side-nav-panel collapsible SocjoiMenu">
+
+    </ul>
+  </div>
+  <div class="slider" id="HomePageSlider">
+
+  </div>
+  <div class="section-who-we-are row">
+    <div class="container">
+      <div class="section-head">
+        <h4>About us</h4>
+      </div>
+      <div class="who-we-are center">
+        <div class="row">
+          <div class="col s12" id="HomePageAboutUS">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="section bg-third" id="MainHomeOurTeam">
+    <div class="container">
+      <div class="section-head">
+        <h4 style="color:#fff !important;">Our Team</h4>
+      </div>
+      <div class="row" id="HomeOurTeam">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="bg-second section" id="MainHomeSuccessStories">
+    <div class="section-head">
+      <h4>Success Stories</h4>
+    </div>
+    <div class="container">
+      <div class="blog" id="HomeSuccessStories">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <h4>Our Sponsors</h4>
+      </div>
+      <div class="container" id="HomeOurSponsors">
+
+      </div>
+    </div>
+  </div>
+  <img src="img/volunteer.jpg" class="responsive-img">
+  <div class="section quote">
+    <div class="container">
+      <h2>We always welcome Volunteers</h2>
+      <br>
+      <p>Any Organization or society need hard working and discipline volunteers to manage all events. Everyone are
+        always welcome to join our young and talented team</p>
+      <a class="btn button-default" href="#" role="button" data-toggle="modal" data-target="#login-modal">Join Now</a>
+    </div>
+  </div>
+  <div class="section" style="padding:0px;">
+    <div class="container" style=" display:none;">
+      <div class="section-head">
+        <h4>PORTFOLIO</h4>
+      </div>
+      <div class="portfolio">
+        <ul class="simplefilter">
+          <li class="active" data-filter="all">
+            <h5>All</h5>
+          </li>
+          <li data-filter="1">
+            <h5>Web</h5>
+          </li>
+          <li data-filter="2">
+            <h5>Logo</h5>
+          </li>
+          <li data-filter="3">
+            <h5>Flyers</h5>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="filtr-container">
+            <div class="col s6 filtr-item col-pd" data-category="1, 3"> <a href="img/portfolio1.jpg"
+                class="image-popup"><img class="responsive-img" src="img/portfolio1.jpg" alt="sample image"></a> </div>
+            <div class="col s6 filtr-item col-pd" data-category="2, 3"> <a href="img/portfolio2.jpg"
+                class="image-popup"><img class="responsive-img" src="img/portfolio2.jpg" alt="sample image"></a> </div>
+            <div class="col s6 filtr-item col-pd" data-category="3, 3"> <a href="img/portfolio3.jpg"
+                class="image-popup"><img class="responsive-img" src="img/portfolio3.jpg" alt="sample image"></a> </div>
+            <div class="col s6 filtr-item col-pd" data-category="1, 2"> <a href="img/portfolio4.jpg"
+                class="image-popup"><img class="responsive-img" src="img/portfolio4.jpg" alt="sample image"></a> </div>
+            <div class="col s6 filtr-item col-pd" data-category="2, 1"> <a href="img/portfolio5.jpg"
+                class="image-popup"><img class="responsive-img" src="img/portfolio5.jpg" alt="sample image"></a> </div>
+            <div class="col s6 filtr-item col-pd" data-category="1, 1"> <a href="img/portfolio6.jpg"
+                class="image-popup"><img class="responsive-img" src="img/portfolio6.jpg" alt="sample image"></a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <h4 id="hp_contactus_success">CONTACT US</h4>
+      </div>
+      <div class="contact-us contact-home">
+        <div class="row">
+          <form onsubmit="return false;">
+            <div class="col s12"> <span style="clear:both; font-size:18px; color:#0089E1; font-weight:bold;"
+                id="contactus_success"> </span>
+              <div class="form-group" id="name-field">
+                <input type="text" class="validate" id="contact_name" name="contact_name" placeholder="NAME">
+              </div>
+              <div class="form-group" id="number-field">
+                <input type="text" class="validate" id="contact_number" name="contact_number"
+                  placeholder="CONTACT NUMBER">
+              </div>
+              <div class="form-group" id="email-field">
+                <input type="email" class="validate" id="contact_email" name="contact_email" placeholder="EMAIL">
+              </div>
+              <div class="form-group" id="subject-field">
+                <input type="text" class="validate" id="contact_subject" name="contact_subject" placeholder="SUBJECT">
+              </div>
+              <div class="form-group" id="message-field">
+                <textarea name="contact_message" id="contact_message" cols="30" rows="10" class="materialize-textarea"
+                  placeholder="YOUR MESSAGE"></textarea>
+              </div>
+              <div class="form-group">
+                <button class="btn button-default" type="submit" onclick="FunContactUs();">SEND MESSAGE</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="fakeLoader"></div>
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12" style="padding-right:0;">
+          <div class="social-media" id="FooterSocialMedia"> </div>
+          <p class="text-center" style="color:#fff !important;">Powered By <a href="http://www.aarvitechnology.com/"
+              style="color:#fff !important;" target="_blank">Aarvi Technology</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dmtop">Scroll to Top</div>
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/fakeLoader.min.js"></script>
+  <script src="js/portfolio.js"></script>
+  <script src="js/jquery.filterizr.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/contact-form.js"></script>
+ 
+  
+  
+  <script src="js/main.js"></script>
+  <script>
+  window.localStorage["SOCJOi_AccountLink"] = 'https://socjoi.com/api/';
+  
+	
+    function CheckLogin() {
+		
+      if (isNaN(parseInt(window.localStorage["Socjoi_AccountId"]))) {
+        document.location = 'login.html';
+		
+      }
+    }
+    function GoToTeamDetail(id) {
+      window.localStorage["Socjoi_TeamId"] = id;
+      location.href = 'team-detail.html';
+    }
+    function GoToGalleryDetail(id) {
+      window.localStorage["Socjoi_GalleryId"] = id;
+      location.href = 'gallery-detail.html';
+    }
+
+    $(document).ready(function () {
+      if(localStorage.Socjoi_Allow_Login == 'yes'){
+        $('.login-btn').show();
+      }
+      FunGetDefaultCss();
+      FunSocjoiMenu();
+      FunSocjoiLoginModal();
+      FunHomePageSlider();
+      FunHomePageAboutUs();
+      FunHomeOurTeam();
+      FunHomeSuccessStories();
+      FunHomeOurSponsors();
+      FunFooterSocialMedia();
+
+      if (window.localStorage["Socjoi_LOGO"] == '') {
+        $('#DivSocjoiLogo').html('<img src="img/logo.png"  height="40">');
+      }
+      else {
+        $('#DivSocjoiLogo').html('<img src="' + window.localStorage["Socjoi_LOGO"] + '" height="40">');
+      }
+
+    });
+
+    function FunSocjoiMenu() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'menu-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], isLogged: window.localStorage["SOCJOI_LOGIN_ID"],member_id:localStorage.Socjoi_Family_Mem_ID  },
+        dataType: 'json',
+        cache: false,
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('.SocjoiMenu').html(response['detail']);
+			if(response['is_logout']=="Logout")
+						{
+							localStorage.removeItem('SOCJOI_LOGIN_ID');
+							localStorage.removeItem('SOCJOI_LOGIN_NAME');
+							localStorage.removeItem('SOCJOI_MEMBERSHIP_ID');
+							localStorage.removeItem('Socjoi_Relation_ID');
+							localStorage.removeItem('Socjoi_Family_Mem_ID');
+							
+						}
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunSocjoiLoginModal() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'login-modal-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], isLogged: window.localStorage["SOCJOI_LOGIN_ID"] },
+        dataType: 'json',
+        cache: false,
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $("#includedContent").html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunGetDefaultCss() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'default-css-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#PutDefaultCss').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunFooterSocialMedia() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'social-media-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#FooterSocialMedia').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunHomePageSlider() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'home-slider-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#HomePageSlider').html(response['detail']);
+
+            $(function () { "use-strict"; $(".side-nav-right").sideNav({ edge: "right", closeOnClick: !1 }), $(".slider").slider({ full_width: !0, slideSpeed: 1000 }), $("#owl-testimonial").owlCarousel({ slideSpeed: 600, paginationSpeed: 800, singleItem: !0 }), $(".latest-news-owl").owlCarousel({ autoPlay: !1, singleItem: !0 }), $("#fakeLoader").fakeLoader({ zIndex: 999, spinner: "spinner1", bgColor: "#ffffff" }) });
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunHomePageAboutUs() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'home-aboutus-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#HomePageAboutUS').html(response['detail']);
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunHomeOurTeam() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'home-ourteam-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          else if (response['code'] == '1') {
+            $('#HomeOurTeam').html(response['detail']);
+          }
+          else if (response['code'] == '3') {
+            $('#MainHomeOurTeam').hide();
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunHomeSuccessStories() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'home-success-stories-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          else if (response['code'] == '1') {
+            $('#HomeSuccessStories').html(response['detail']);
+          }
+          else if (response['code'] == '3') {
+            $('#MainHomeSuccessStories').hide();
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+
+    }
+    function FunHomeOurSponsors() {
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'home-our-sponsors-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"] },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          else if (response['code'] == '1') {
+            $('#HomeOurSponsors').html(response['detail']);
+
+            $(function () {
+              "use-strict";
+              $(".side-nav-right").sideNav({ edge: "right", closeOnClick: !1 }),
+                $(".slider").slider({ full_width: !0, slideSpeed: 1000 }),
+                $("#owl-testimonial").owlCarousel({ slideSpeed: 600, paginationSpeed: 800, singleItem: !0 }),
+                $(".latest-news-owl").owlCarousel({ autoPlay: !1, singleItem: !0 }),
+                $("#fakeLoader").fakeLoader({ zIndex: 999, spinner: "spinner1", bgColor: "#ffffff" })
+            });
+          }
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunMake() {
+      var emailid = document.getElementById('make_email');
+      if ($('#make_name').val() == '') {
+        $('#MaterialDetail').html("Please Enter Name");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#make_name').focus();
+        return false;
+      }
+      if ($('#make_email').val() == '') {
+        $('#MaterialDetail').html("Please Enter Email");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#make_email').focus();
+        return false;
+      }
+      if ($('#make_email').val() != '' && validateEmail(emailid) == false) {
+        $('#MaterialDetail').html("Please Enter Valid Email Address");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#make_email').focus();
+        return false;
+      }
+      if ($('#make_phone').val() == '') {
+        $('#MaterialDetail').html("Please Enter Phone");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#make_phone').focus();
+        return false;
+      }
+      if ($('#make_subject').val() == '') {
+        $('#MaterialDetail').html("Please Enter Subject");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#make_subject').focus();
+        return false;
+      }
+      if ($('#make_message').val() == '') {
+        $('#MaterialDetail').html("Please Enter Message");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#make_message').focus();
+        return false;
+      }
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'join-now-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], name: $('#make_name').val(), phone: $('#make_phone').val(), email: $('#make_email').val(), subject: $('#make_subject').val(), message: $('#make_message').val() },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('#make_success').html('Thank you for your interest to be a Volunteer. We will contact you very soon.');
+            setTimeout(function () { $('#login-modal').modal('hide'); $('#make_success').html(''); }, 2000);
+
+          }
+          $('#make_name').val('');
+          $('#make_email').val('');
+          $('#make_subject').val('');
+          $('#make_phone').val('');
+          $('#make_message').val('');
+
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function FunContactUs() {
+      var emailid = document.getElementById('contact_email');
+      var mobile_number = $('#contact_number').val();
+      if ($('#contact_name').val() == '') {
+        $('#MaterialDetail').html("Please Enter Name");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#contact_name').focus();
+        return false;
+      }
+      if (mobile_number.length != 10 || !(/^\d+$/.test(mobile_number))) {
+        $('#MaterialDetail').html("Please Enter Valid Contact Number");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#contact_number').focus();
+        return false;
+      }
+      if ($('#contact_email').val() == '') {
+        $('#MaterialDetail').html("Please Enter Email");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#contact_email').focus();
+        return false;
+      }
+      if ($('#contact_email').val() != '' && validateEmail(emailid) == false) {
+        $('#MaterialDetail').html("Please Enter Valid Email Address");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#contact_email').focus();
+        return false;
+      }
+      if ($('#contact_subject').val() == '') {
+        $('#MaterialDetail').html("Please Enter Subject");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#contact_subject').focus();
+        return false;
+      }
+      if ($('#contact_message').val() == '') {
+        $('#MaterialDetail').html("Please Enter Message");
+        $('#MaterialDetailBox').modal({ show: true });
+        $('#contact_message').focus();
+        return false;
+      }
+      $('#loader').show();
+      $.ajax({
+        type: "GET",
+        url: window.localStorage["SOCJOi_AccountLink"]+'contact-up-api.php',
+        crossDomain: true,
+        data: { account_id: window.localStorage["Socjoi_AccountId"], account_code: window.localStorage["Socjoi_AccountCode"], name: $('#contact_name').val(), mobile_number: mobile_number, email: $('#contact_email').val(), subject: $('#contact_subject').val(), message: $('#contact_message').val() },
+        dataType: 'json',
+        success: function (response) {
+          $('#loader').hide();
+          if (response['code'] == '0') {
+            $('#MaterialDetail').html(response['message']);
+            $('#MaterialDetailBox').modal({ show: true });
+          }
+          if (response['code'] == '1') {
+            $('html, body').animate({
+              scrollTop: $("#hp_contactus_success").offset().top
+            }, 1000);
+
+            $('#contactus_success').html('Thank you for contacting us. Our representative will call you very soon.');
+            $('#contact_name').val('');
+            $('#contact_email').val('');
+            $('#contact_subject').val('');
+            $('#contact_message').val('');
+            setTimeout(function () { $('#contactus_success').html(''); }, 2000);
+
+          }
+
+        },
+        error: function () {
+          $('#loader').hide();
+          $('#MaterialDetail').html("You are not connected to internet. Please try again.");
+          $('#MaterialDetailBox').modal({ show: true });
+        }
+      });
+    }
+    function validateEmail(email) {
+      var re_mail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z])+$/;
+      if (!re_mail.test(email.value)) {
+        return false;
+      }
+      return true;
+    }
+    (function ($) {
+      "use strict";
+      jQuery(window).scroll(function () {
+        if (jQuery(this).scrollTop() > 1) {
+          jQuery('.dmtop').css({ bottom: "25px" });
+        } else {
+          jQuery('.dmtop').css({ bottom: "-100px" });
+        }
+      });
+      jQuery('.dmtop').click(function () {
+        jQuery('html, body').animate({ scrollTop: '0px' }, 800);
+        return false;
+      });
+
+    })(jQuery);
+  </script>
+   <script type="text/javascript">
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      history.go(1);
+    };
+  </script>
+  <div id="includedContent"></div>
+  <div class="modal fade bs-example-modal-lg " style="z-index:1111;" id="MaterialDetailBox" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg alert-modal">
+
+      <div class="modal-content" style="background-color: #df4a38; padding: 0px;">
+        <div class="modal-icon"><i class="fa fa-info-circle"></i></div>
+        <div class="modal-body">
+          <div class="input-block">
+            <div class="row" style="margin:0px;">
+              <div class="">
+                <span id="MaterialDetail"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-btn"><a style="font-size: 20px; color: #fff;" type="" class="" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span></a></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+  style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content" style=" padding:0;">
+      <div class="modal-header" align="center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span class="fa fa-times"
+            aria-hidden="true"></span> </button>
+        <h4>Welcome to Our Team</h4>
+      </div>
+      <div id="div-forms">
+        <div class="modal-body">
+          <div class="contact-home">
+            <div class="row">
+              <div class="col-md-12">
+                <form onsubmit="return false;">
+                  <div class="col s12"> <span style="clear:both; font-size:18px; color:#0089E1; font-weight:bold;"
+                      id="make_success"> </span>
+                    <div class="form-group" id="name-field">
+                      <input type="text" class="validate" id="make_name" placeholder="Name">
+                    </div>
+
+                    <div class="form-group" id="email-field">
+                      <input type="email" class="validate" id="make_email" placeholder="Email Address">
+                    </div>
+                    <div class="form-group" id="email-field">
+                      <input type="text" class="validate" id="make_phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group" id="subject-field">
+                      <input type="text" class="validate" id="make_subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group" id="message-field">
+                      <textarea id="make_message" cols="30" rows="10" class="materialize-textarea"
+                        placeholder="Remarks"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn button-default" type="submit" onclick="FunMake();" style="margin:0px;">SEND
+                        MESSAGE</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End # Login Form -->
+
+      </div>
+      <!-- End # DIV Form -->
+
+    </div>
+  </div>
+</div>
+  <div id="loader" class="grayBox" style="display:none; position:fixed; vertical-align:middle; z-index:1050;"
+    align="center"><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="img/loader-img.gif">
+  </div>
+</body>
+
+</html>
